@@ -19,7 +19,7 @@ def txout_decompress(x):
 
     :param x: Compressed amount to be decompressed.
     :type x: int
-    :return: The decompressed amount of satoshi.
+    :return: The decompressed amount of zubrin.
     :rtype: int
     """
 
@@ -208,7 +208,7 @@ def decode_utxo_v08_v014(utxo):
         least one non-spent output).
 
     VARINT refers to the CVarint used along the Bitcoin Core client, that is base128 encoding. A CTxOut contains the
-    compressed amount of satoshi that the UTXO holds. That amount is encoded using the equivalent to txout_compress +
+    compressed amount of zubrin that the UTXO holds. That amount is encoded using the equivalent to txout_compress +
     b128_encode.
 
     :param utxo: UTXO to be decoded (extracted from the chainstate)
@@ -267,7 +267,7 @@ def decode_utxo_v08_v014(utxo):
     # Once the number of outs and their index is known, they could be parsed.
     outs = []
     for i in vout:
-        # The satoshi amount is parsed, decoded and decompressed.
+        # The zubrin amount is parsed, decoded and decompressed.
         data, offset = parse_b128(utxo, offset)
         amount = txout_decompress(b128_decode(data))
         # The output type is also parsed.
@@ -371,7 +371,7 @@ def parse_ldb(fin_name, version=0.15, types=(0, 1)):
                 not_decoded[1] += out['amount']
 
     print('\nunable to decode %d transactions' % not_decoded[0])
-    print('totaling %d satoshi' % not_decoded[1])
+    print('totaling %d zubrin' % not_decoded[1])
 
     db.close()
 

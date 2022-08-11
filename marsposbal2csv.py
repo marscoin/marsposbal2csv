@@ -15,7 +15,7 @@ def input_args():
         help='path to bitcoin chainstate directory (usually in full node data dir)'
     )
     parser.add_argument(
-        '--bitcoin_version',
+        '--marscoin_version',
         type=float,
         default=0.15,
         help='versions of bitcoin node, acceptable values 0.08 - 0.15, default 0.15 should be OK'
@@ -97,7 +97,7 @@ def in_mem(in_args):
     add_dict = dict()
     for add, val, height in parse_ldb(
             fin_name=in_args.chainstate,
-            version=in_args.bitcoin_version,
+            version=in_args.marscoin_version,
             types=get_types(in_args)):
         if add in add_dict:
             add_dict[add][0] += val
@@ -156,7 +156,7 @@ def low_mem(in_args):
             """
         for add, val, height in parse_ldb(
                 fin_name=in_args.chainstate,
-                version=in_args.bitcoin_version,
+                version=in_args.marscoin_version,
                 types=get_types(in_args)):
             curr.execute(expinsert, (add, 0, 0))
             curr.execute(expupdate, (val, height, add))
@@ -195,7 +195,7 @@ if __name__ == '__main__':
         add_iter = in_mem(args)
 
     if args.out:
-        w = ['address,value_satoshi,last_height']
+        w = ['address,value_zubrin,last_height']
         with open(args.out, 'w') as f:
             c = 0
             for address, sat_val, block_height in add_iter:
