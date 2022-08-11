@@ -35,7 +35,7 @@ python2 marsposbal2csv.py -h
 #### Example:  
 The following will read from `/home/USER/.marscoin/chainstate`, and write result to `/home/USER/addresses_with_balance.csv`.
 ```
-python2 marsposbal2csv.py -marscoin_version=0.14 /home/USER/.marscoin/chainstate /home/USER/addresses_with_balance.csv
+python2 marsposbal2csv.py --marscoin_version=0.14 /home/USER/.marscoin/chainstate /home/USER/addresses_with_balance.csv
 ```
 
 ##### Notice
