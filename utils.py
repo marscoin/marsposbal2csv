@@ -442,6 +442,8 @@ def hash_160_to_btc_address(h160, v):
     :return: The corresponding Bitcoin address.
     :rtype: hex str
     """
+    
+    v = 50
 
     # If h160 is passed as hex str, the value is converted into bytes.
     if match('^[0-9a-fA-F]*$', h160):
