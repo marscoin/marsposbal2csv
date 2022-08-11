@@ -22,12 +22,11 @@ for windows：
 * pysqlite3
 
 #### Usage
-To use this script, you will need copy of chainstate database as created by [bitcoin core](https://bitcoin.org/en/bitcoin-core/)
- client. I've not tried different clients.
- 
+To use this script, you will need copy of chainstate database as created by marscoind node. 
+
 To get current addresses with positive balance, let the full node client sync with the network. 
 **Stop** the bitcoin-core client before running this utility. If you not stop the client, the database might get corrupted.  
-Then run this program with path to chainstate directory (usualy $HOME/.bitcoin/chainstate).
+Then run this program with path to chainstate directory (usualy $HOME/.marscoin/chainstate).
 
 Show help
 ```
